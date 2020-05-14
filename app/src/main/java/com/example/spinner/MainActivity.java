@@ -28,15 +28,17 @@ public class MainActivity extends AppCompatActivity {
         mShowAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this
-                        ,mCountriesSpinner.getSelectedItem().toString()
-                                + " "
-                                + mCitiesSpinner.getSelectedItem().toString()
-                                + " "
-                                + mHouseNumberSpinner.getSelectedItem().toString()
-                        , Toast.LENGTH_LONG)
-                        .show();
+                if (!mCountriesSpinner.getSelectedItem().toString().equals("") && !mCitiesSpinner.getSelectedItem().toString().equals("") && !mHouseNumberSpinner.getSelectedItem().toString().equals(""))
+                    Toast.makeText(MainActivity.this
+                            , mCountriesSpinner.getSelectedItem().toString()
+                                    + " "
+                                    + mCitiesSpinner.getSelectedItem().toString()
+                                    + " "
+                                    + mHouseNumberSpinner.getSelectedItem().toString()
+                            , Toast.LENGTH_LONG)
+                            .show();
             }
+
         });
 
     }
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 1; i <= 50; i++) {
             houseNumber[i-1] = i;
         }
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_item, houseNumber);
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, houseNumber);
         mHouseNumberSpinner.setAdapter(adapter);
     }
 
